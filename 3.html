@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Zilla+Slab&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <link href="css/all.css" rel="stylesheet"> <!--load all styles -->
+    <script defer src="js/all.js"></script> <!--load all styles -->
+
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="blogs.css">
+
+    <title>Logistic Regression</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
+</head>
+<body>
+   <!--simple navbar-->
+   <ul class="top">
+    <li style="float: left;"><a href="index.html" class="nav-link">रajwrita</a></li>
+    <li style="float: right;"><a href="resume.pdf" class="nav-link">Resume</a></li>
+    <li style="float: right;"><a href="blogs.html" class="nav-link">Blogs</a></li>
+</ul>
+
+
+    <!--cards-->
+<section id="cards" style="padding: 1rem;">
+
+    <div class="card mb-3" style="padding: 2rem;">
+        <img src="blogsimg/6.png" class="card-img-top" alt="...">
+        <div class="card-body" style="padding: 4rem;">
+          <h1>Logistic Regression- the Theory and Code</h1>
+          <br>
+          <p>Logistic Regression is an example of a classification algorithm which is used to find a relationship between features and probability of a particular outcome. The term “Logistic” is taken from the Logit function that is used in this method of classification.
+            Logistic Regression is tremendously useful in medical diagnosis given some specific symptoms and parameters. Like for example, logistic regression is used to detect early stages of breast cancer given certain parameters like age, past history, genetic factors, etc.</p>
+          <p>The name ‘Logistic Regression’, comes from it’s underlying technique which is quite the same as Linear Regression. Like all regression analysis, Logistic regression is an example of predictive analysis. However unlike regular regression, the outcome calculates the predicted probability of mutually exclusive event occurring based on multiple external factors.
+            It can thus be considered as a special case of linear regression where the target variable is categorical in nature. Linear regression has a considerable effect on outliers. To avoid this problem, log-odds function or logit function is used. It uses a log of odds as the dependent variable. Logistic Regression predicts the probability of occurrence of a binary event utilizing a logit function.
+            The independent variables in logistic regression should be independent of each other. That is, the model should have little or no multicollinearity. This model works best on large sample sizes with independent variables having linear relation to the log odds.</p>
+           <h3>More about the Logit Function:</h3> 
+           <p>We have already seen in the <a href="1.html">Linear Regression blog</a>, the linear regression equation is:</p>
+           <img src="blogsimg/leq.png" style="margin-right: auto; margin-left: auto; display:block; width: 30vw;">
+           <p>Here, y is dependent variable and X1, X2 … and Xn are explanatory variables.
+            The sigmoid function can be written as:</p>
+            <img src="blogsimg/sig.png" style="margin-right: auto; margin-left: auto; display:block; width: 10vw;">
+            <p>The sigmoid function gives an S-shaped curve. It always gives a value of probability ranging from 0<p<1. The function can take any real-valued number and map it into a value between 0 and 1. If the curve goes to positive infinity, y predicted will become 1, and if the curve goes to negative infinity, y predicted will become 0. If the output of the sigmoid function is more than 0.5, we can classify the outcome as 1 or YES, and if it is less than 0.5, we can classify it like 0 or NO. If the output is 0.75, we can say in terms of probability as: There is a 75 percent chance that patient will suffer from cancer</p>
+            <img src="blogsimg/log.png" style="margin-right: auto; margin-left: auto; display:block; width: 30vw;">
+            <p>If we apply the sigmoid equation to the linear regression equation, we have:
+            </p>
+            <img src="blogsimg/leqq.jpeg" style="margin-right: auto; margin-left: auto; display:block; width: 20vw;">
+            <p>Logistic regressions involve the regression coefficients as a superscript to the value of e. This means that the coefficients have an effect on the probability. As an effect on probability, the coefficients represent odds instead of simple numerical relationships.
+              The fact that the coefficients represent odds ratios is particularly useful in light of the fact that the logistic regression predicts probabilities instead of a particular outcome.
+            </p>
+            <h3>Logit Function:</h3>
+            <p>Logistic regression can be expressed as:</p>
+            <img src="blogsimg/logit.png" style="margin-right: auto; margin-left: auto; display:block; width: 20vw;">
+            <p>where, the left hand side is called the logit or log-odds function, and p(x)/(1-p(x)) is called odds.
+              The odds signifies the ratio of probability of success to probability of failure. Therefore, in Logistic Regression, linear combination of inputs are mapped to the log(odds) — the output being equal to 1.</p>
+            <h3>Some important features of Logistic Regression:</h3>
+            <p>The dependent variable in logistic regression follows Bernoulli Distribution. To know more about Bernoulli Distribution, head over to my <a href="">Intro to ML live with DSC NSEC </a>YouTube session.</p>
+             <p>Estimation is done through maximum likelihood. Unlike linear regression model, that uses Ordinary Least Square for parameter estimation, we use Maximum Likelihood Estimation.
+              There can be infinite sets of regression coefficients. The maximum likelihood estimate is that set of regression coefficients for which the probability of getting the data we have observed is maximum.
+              If we have binary data, the probability of each outcome is simply π if it was a success, and 1−π otherwise. Therefore we have the likelihood function:</p> 
+              <img src="blogsimg/prop.png" style="margin-right: auto; margin-left: auto; display:block; width: 25vw;">
+              <p>To determine the value of parameters, log of likelihood function is taken, since it does not change the properties of the function.
+                The log-likelihood is differentiated and using iterative techniques like Newton method, values of parameters that maximize the log-likelihood are determined.</p>
+              <p>No R Square, Model fitness is calculated through Concordance, KS-Statistics.</p>
+                <!--button in card-->
+
+      <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <br>
+          <p class="card-text"><small class="text-muted">03-03-2020</small></p>
+        </div>
+    </div>
+
+    </div>
+    </div>
+    </section>
+    </section>
+
+    
+  
+  
+   
+  
+   
+  
+      
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+          crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+          crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+          crossorigin="anonymous"></script>
+  
+      <script>
+          $(function () {
+              $(document).scroll(function () {
+                  var $nav = $("#mainNavbar");
+                  $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+              });
+          });
+      </script>
+  </body>
+  
+  </html>

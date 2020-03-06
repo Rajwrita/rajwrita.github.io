@@ -1,0 +1,97 @@
+body{
+    background:#FFFCF9;
+    font-family: 'Muli', sans-serif;
+    padding: 2rem;
+}
+
+div{
+    display: block;
+}
+
+ul.top {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:#FFFCF9;
+    font-size: 1.5rem;
+     
+  }
+
+  a:hover {
+    color: #E26D5A;
+  }
+
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+.nav-link{
+    color: black;
+}
+#contents{
+    padding: 2rem;
+  }
+  /* Create two unequal columns that floats next to each other */
+  /* Left column */
+  .leftcolumn {   
+    float: left;
+    width: 75%;
+  }
+  
+  /* Right column */
+  .rightcolumn {
+    float: left;
+    width: 25%;
+    padding-left: 20px;
+    border-color: #bbb;
+  }
+  .btn{
+    padding: 15px 100px;
+    margin:10px 4px;
+    color: black;
+    text-align: right;
+    position: relative;
+    text-decoration: none;
+    display:inline-block;
+    
+  }
+
+  /* Add a card effect for articles */
+  .card {
+    background-color:white;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+   content: "";
+   display: table;
+   clear: both;
+  }
+  
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+   .leftcolumn, .rightcolumn {   
+     width: 100%;
+     padding: 0;
+   }
+  }
+  /* Fake image */
+  .fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+  }

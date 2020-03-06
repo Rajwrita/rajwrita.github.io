@@ -1,0 +1,125 @@
+body{
+    background:#FFFCF9;
+    font-family: 'Muli', sans-serif;
+    padding: 2rem;
+}
+
+div{
+    display: block;
+}
+
+ul.top {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:#FFFCF9;
+    font-size: 1.5rem;
+     
+  }
+
+  a:hover {
+    color: #E26D5A;
+  }
+
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+.nav-link{
+    color: black;
+}
+
+.intro{
+    text-align: center;
+    position: relative;
+    transform: translateY(50%);
+}
+.name{
+    font-size: 2rem;
+    font-weight: 400;
+}
+.description{
+    padding-bottom: 0.3rem;
+}
+.links{
+    padding-top: 0.3rem;
+}
+.links a{
+  background-color:#eceeef;
+  color:#818a91;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:12px;
+  border-radius:100%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+
+}
+.links a:active,.links a:focus,.links a:hover
+{
+  color:#fff;
+  background-color:#29aafe
+}
+.links.size-sm a
+{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+.links a.facebook:hover
+{
+  background-color:#3b5998
+}
+.links a.twitter:hover
+{
+  background-color:#00aced
+}
+.links a.linkedin:hover
+{
+  background-color:black
+}
+.links a.dribbble:hover
+{
+  background-color:#ea4c89
+}
+.links a.youtube:hover
+{
+  background-color:red
+}
+.links a.medium:hover
+{
+  background-color:black
+}
+@media (max-width:767px)
+{
+  .links li.title
+  {
+    display:block;
+    margin-right:0;
+    font-weight:600
+  }
+}
+.intro .image img{
+    width:128px;
+    height:auto;
+    display: inline-block;
+    border-radius: 100%;
+    box-shadow: 0 0 0 0.3618em rgba(0,0,0,.05);
+    transition: all ease .4s;
+    cursor: pointer;
+}
