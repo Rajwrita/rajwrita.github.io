@@ -45,60 +45,50 @@
  <br>
           <h1>Bayesian Linear Regression</h1>
           <br>
-        <p>Bayesian inference is a method of statistical inference which uses Bayes’ theorem is used to update the probability for a hypothesis as more evidence or information becomes available.</p>
-        <p>Bayesian updating is crucial for dynamic analysis of a sequence of data. Bayesian inference is intricately related to subjective probability, better known as <i>“Bayesian Probability”</i></p>
-        <p>Suppose that the events A1, A2, …, An are exhaustive and mutually exclusive and none of them have zero probability. Further, let B be an event, which too, has a non zero probability. Then,  </p>
+        <p>One of the fundamental tasks in Natural Language Processing is the process of assigning tags or categories to text according to its context. The applications of Text Classification is endless, some of them are sentiment analysis, topic labeling, spam detection, and intent detection. In text stream analysis one of the foremost problems is finding an effective method to classify documents fast and correctly.</p>
+        <p><i>This is the reason why dimensionality reduction and related methods of representation of significant information are critical to developing a good text classifier.</i></p>
+        <p>In such applications, the dimensionality of the term space may be problematic. The classification accuracy degrades with higher dimensions.
+            However, it is observed that even the finest of the text classification algorithms fail to maintain accuracy with high dimensions of the data space.
+            In this regard Principal Component Analysis can be used for feature selection and dimensionality reduction. Here, PCA finds orthogonal dimensions in the space of documents and ranks them according to the variance of data along these new set of dimensions. It means more important principle axis occurs first. More about PCA will be covered in an upcoming blog :)</p>
+        <p>In this blog, a purely combinatorial approach of obtaining meaningful representations of text data is elaborated. Specifically, two different methods are used — combinatorial principal component analysis (cPCA) and combinatorial support vector machines (cSVM). By using combinatorial principal component analysis (cPCA) and combinatorial support vector machines (cSVM), it would be possible to achieve performance within 2% with a considerably small feature space.</p>
+          <h3>But first, what is combinatorics?</h3> 
+          <p><i>Combinatorics is, in short, the study of finite or countable structures.</i></p> 
+          <p>Combinatorics is used to calculate the total number of possible outcomes. Combinatorics has considerable applications in mathematical optimization, computer science, ergodic theory and statistical physics.
+            Basically, combinatorics studies countable sets. Probability uses combinatorics to assign probability (value between 0 & 1) to events. Statistics takes sample and compare them to probability models.
+            Those fields of study have massive influence in many other fields. They are key in Machine Learning and Data Science in general.
+            In Fact, Real-world machine learning tasks frequently involve combinatorial structure. How model, infer or predict with graphs, matching, hierarchies, informative subsets or other discrete structure underlying the data
+            By utilizing this combinatorial approach, it’s possible to obtain meaningful representations of text data with a feature space that is on average 50 times smaller than the original space.</p>
+        <p>Both methods of cPCA and cSVM follow a similar model involving the use of a rectangular matrix representation of the text with a particular score function in order to optimize the result. While each method accomplishes the same goal, they cater to different types of problems.
+            The method cPCA divides features, i.e. the frequencies of words in documents of the data set, of the data (columns of the data matrix) into groups according to their degree of contrast. The ordering of these groups along the scale of contrast constitutes the analogy with the classical PCA.
+            The cSVM model first makes use of the labels of documents, then, feature ranking based on training a linear SVM is done on filtered documents. Finally, feature selection.</p>
+          <p>Both methods follow a similar model involving the use of a rectangular matrix representation of the text with a particular score function in order to optimize the result. While each method accomplishes the same goal, they cater to different types of problems. Where cPCA would be especially useful for image vision and cSVM would excel with any data that’s representable in an Euclidean space.</p> 
+           <h3>Combinatorial PCA:</h3>
+           <p>Combinatorial PCA is based on the assumption that features that occur frequently in points from the same class are inevitably significant to the classification. These significant features are used to represent the points in a much smaller space.
+            This data is further represented in the form of a matrix, A=||aij||, where rows correspond to points and columns to features (frequency of words).</p>
+           <p>In order to determine significant sub-matrices of A, we use as the set W the set of indices of rows and columns in the entire data matrix. Below we use the following notations: W = (Wr, Wc), where Wr is a set of indices for rows of the matrix A, Wc is a set of indices for columns of the same data-matrix (|Wr| = n, |Wc| = f, n + f = N). H = (Hr, Hc) is a subset of W (Hr ⊆ Wr, Hc ⊆ Wc). We define, additionally, that π(i, H) = 0 if H doesn’t include at least one element from both sets Wr and Wc (in other words, if Hr not equal to ∅ and Hc not equal to ∅):</p>
+           <img src="blogsimg/fhm.png" style="margin-right: auto; margin-left: auto; display:block; width: 70vw;">
+           <p>The sub-matrix-cluster that we are looking for is defined by the subset of indices H∗ which gives the maximum value for the function.</p>
+           <img src="blogsimg/fh.png" style="margin-right: auto; margin-left: auto; display:block; width: 30vw;">
+           <p>A set H0 ⊆ W is a strict local maximum of F(H) if: ∀H, H0 ⊂ H ⊆ W ⇒ F(H0) > F(H)</p>
+           <p>The Hc parts of these local maxima form the combinatorial principal components. These parts have the following interesting properties:</p>
+           <p>1. They form an ordered chain of sets: H1 ⊃ H2 ⊃ · · · ⊃ Hp</p>
+           <p>2. This order is mirrored in the sequence: F(H1)< F(H2)<…< F(Hp)</p>
+            <p>Using the sequence of local maxima, H1, H2, …, Hp, one can easily test different extreme sub-matrices with different levels of word frequency.
+                When representing documents in a matrix where each row corresponds to a document and each column corresponds to a feature, it is clear that this tower structure gives an ordinal scale for both documents and their features. The scale of documents points to which documents contain the most frequent words (of course, after having filtered stop-words), and, which include really rare words; similarly, a related feature scale shows which words are most frequent, and, what is their “location” in documents. In the present study we used for the purpose of learning, only the ordinal scale for document features. As an improvement, we plan to use a similar scale for documents in the near future.</p>
+             <img src="blogsimg/z.png" style="margin-right: auto; margin-left: auto; display:block; width: 50vw;">
+            <p>So, if one gets a chain of nesting set of words (parts of our nesting clusters) presented in the considered data-matrix, one can follow the order of the chain and interpret any position (subset of the corresponding words) as a particular subspace in which any classifier program can work. Of course, the most interesting case for us would be if we could construct a good classifier using a low dimension subspace. The fact that we can search candidates of those subspaces in the constructed chain provides a very efficient way to search the candidate subspaces.</p>
+            <h3>Conclusion:</h3>
+            <p>In doing this, a combinatorial approach can help tackle problems regarding high dimensionality in text classification, where accuracy tends to degrade quickly with more added dimensions.</p>
+          <p><i>This is not only effective in showing how you can improve efficiency in text classification, but also in displaying the wide applications for the field of combinatorics in data science. It’s clear that there’s often great benefit to applying a combinatorial scope to a data-driven problem.
+            In the further blogs, I wish to elaborate more on cSVM and also complete the code implementation :)</i></p>
           
-        <img src="blogsimg/bayes.jpg" style="margin-right: auto; margin-left: auto; display:block; width: 70vw;">
-         <p>It may be said that Bayes’ theorem gives us the posterior probability of Ai in terms of the prior probabilities P(Ai), i=1, 2, …, n and the conditional probabilities of B.
-            But before diving into Bayesian Linear Regression, let us briefly recap frequentist linear regression. Frequentist view of linear regression assumes data is generated from the following model:</p>  
-        <img src="blogsimg/freq.png" style="margin-right: auto; margin-left: auto; display:block; width: 70vw;">    
-        <p>y is the response that is generated from the model parameters, β, times the input matrix, X, plus error due to random sampling noise or latent variables.
-            In the ordinary least square method, the model parameters, β, are calculated by finding the parameters which minimize the sum of squared errors on the training data. The output thus consists of single-point estimates that best fit the training data and can be further used to predict for new data points.
-            Bayesian Linear Regression assumes that data responses are sampled from a probability distribution like Normal or Gaussian Distribution.</p>
-        <img src="blogsimg/normal1.png" style="margin-right: auto; margin-left: auto; display:block; width: 70vw;"> 
-        <p>Here the mean of the distribution is the product of the parameters, β and the inputs, X, and the standard deviation is σ. In Bayesian models the response is assumed to be sampled from a distribution and so are the parameters.</p>
-        <p>The primary objective of this is to determine the posterior probability of the data to assign priors for the model parameters. The posterior probability utilizes the domain knowledge to determine the predicted output for future data points. In this viewpoint, we could also use non-informative priors. Non-informative priors utilize distributions with large standard deviations that do not assume anything about the variable, that is, it lets the data speak for itself.</p>
-         <p>In the case of continuous values, calculation of the exact posterior distribution is intractable, thus, we use sampling methods such as Markov Chain Monte Carlo(MCMC) to draw samples from the posterior in order to approximate the posterior. The essential understanding behind this process is that the approximation of the posterior will eventually converge on the true posterior distribution for the model parameters.
-            The conclusion of this process is drawing a distribution which helps in making inferences about the future new observations. The distribution showcases the uncertainty in the model. With the increase in the number of data points, the uncertainty goes down providing better estimates for new data points.</p> 
-        <h3>Implementing Bayesian Linear Modelling in Python:</h3>
-         <p>We are using data on student grades collected from a Portuguese secondary (high) school. This data is from the UCI machine learning repository.</p>
-        <p>The objective is to predict the final grade from the student information which makes this a supervised, regression task. We have a set of training data with known labels, and we want the model to learn a mapping from the features (explanatory variables) to the target (the label) in this case the final grade. It is a regression task because the final grade is a continuous value.
-            There are two primary points that are met in this model. One of which is building a formula relating the features to the target and decide on a prior distribution for the data likelihood. The second one is to sample from the parameter posterior distribution using MCMC.
-            The formula relating the grade to the student characterisics:</p>
-        <p><i>Grade ~ failures + higher_edu + mother_edu + study time + father_edu + absences</i></p>
-        <p>Based on the correlation of values, we can assume that grade is a linear function of the combination of the six features on the right side of the tilde.</p>
-        <p>The dedicated sampler runs for few minutes and stores the values in <i>normal_trace</i></p>
-        <p>A traceplot shows the posterior distribution for the model parameters on the left and the progression of the samples drawn in the trace for the variable on the right. The two colors represent the two different chains sampled.</p>
-        <p><i>p.traceplot(normal_trace):</i></p>
-        <img src="blogsimg/tplot.png" style="margin-right: auto; margin-left: auto; display:block; width: 70vw;"> 
-        <p>The left side of the traceplot is the marginal posterior: the values for the variable are on the x-axis with the probability for the variable (as determined by sampling) on the y-axis. The different colored lines indicate that we performed two chains of Markov Chain Monte Carlo. From the left side we can see that there is a range of values for each weight. The right side shows the different sample values drawn as the sampling process runs.</p>
-        <p>We can also see a summary of the model parameters which:
-            <i>pm.summary(normal_trace):</i></p>
-        <img src="blogsimg/summary.png" style="margin-right: auto; margin-left: auto; display:block; width: 70vw;"> 
-        <p>We can infer that the previous class failures and absences have a negative weight, again the Higher Education plans and studying time have a positive weight. Similarly for the rest.
-            The standard deviation column and hpd limits give us a sense of how confident we are in the model parameters.</p>
-        <p>In order to see the effect of a single variable on the grade, we can change the value of this variable while holding the others constant and look at how the estimated grades change. To do this, we use the <i>plot_posterior_predictive</i> function and assume that all variables except for the one of interest (the query variable) are at the median value.
-            The results The results show the estimated grade versus the range of the query variable for 100 samples from the posterior:</p>
-        <img src="blogsimg/plots.png" style="margin-right: auto; margin-left: auto; display:block; width: 70vw;"> 
-        <p>Each line (there are 100 in each plot) is drawn by picking one set of model parameters from the posterior trace and evaluating the predicted grade across a range of the query variable. The distribution of the lines shows uncertainty in the model parameters: the more spread out the lines, the less sure the model is about the effect of that variable. An instance is the plot for father’s education.</p>
-        <img src="blogsimg/plotfather.png" style="margin-right: auto; margin-left: auto; display:block; width: 70vw;"> 
-        <p>When it comes to making predictions, this model can be used to estimate distributions. We find the normal distribution of estimated outputs and multiply the model parameters by our data point to derive the mean and standard deviation.</p>
-        <p>In this case, we will take the mean of each model parameter from the trace to serve as the best estimate of the parameter. If we take the mean of the parameters in the trace, then the distribution for a prediction becomes:</p>
-        <p><i>Grade ~ N(9.20 * Intercept - 1.32 * failures + 1.85 * higher_edu + 0.26 * mother_edu + 0.58 * studytime + 0.03 * father_edu - 0.07 * absences,  2.28^2)</i></p>
-        <p>For a new data point, we substitute the value of the variables and construct the probability density function for the grade.</p>
-        <p><i>The {in progress} code for this model is on my <a href="https://github.com/Rajwrita/Regression/blob/master/Bayesianexamplemodel.ipynb">GitHub!</a>. Until then you can check out the simpler models on Regression through this <a href="https://github.com/Rajwrita/Regression">link!</a></i></p>
-        
-        
-        
-        
-        
-        <!--button in card-->
+            
+          <!--button in card-->
 
       <div class="row">
         <div class="col-md-8 col-sm-6 col-xs-12">
           <br>
-          <p class="card-text"><small class="text-muted">01-04-2020</small></p>
+          <p class="card-text"><small class="text-muted">07-03-2020</small></p>
         </div>
     </div>
 
