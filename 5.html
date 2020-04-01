@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Zilla+Slab&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <link href="css/all.css" rel="stylesheet"> <!--load all styles -->
+    <script defer src="js/all.js"></script> <!--load all styles -->
+
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="blogs.css">
+
+
+
+    <title>Bayesian Linear Regression</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
+</head>
+<body>
+    
+<!--simple navbar-->
+<ul class="top">
+  <li style="float: left;"><a href="index.html" class="nav-link">रajwrita</a></li>
+  <li style="float: right;"><a href="R1.pdf" class="nav-link">Resume</a></li>
+  <li style="float: right;"><a href="blogs.html" class="nav-link">Blogs</a></li>
+</ul>
+
+    <!--cards-->
+<section id="cards" style="padding: 1rem;">
+
+    <div class="card" style="padding: 1rem;">
+        <img src="blogsimg/bayesian.png" class="card-img-top" alt="...">
+ <br>
+          <h1>Bayesian Linear Regression</h1>
+          <br>
+        <p>Bayesian inference is a method of statistical inference which uses Bayes’ theorem is used to update the probability for a hypothesis as more evidence or information becomes available.</p>
+        <p>Bayesian updating is crucial for dynamic analysis of a sequence of data. Bayesian inference is intricately related to subjective probability, better known as <i>“Bayesian Probability”</i></p>
+        <p>Suppose that the events A1, A2, …, An are exhaustive and mutually exclusive and none of them have zero probability. Further, let B be an event, which too, has a non zero probability. Then,  </p>
+          
+        <img src="blogsimg/bayes.jpg" style="margin-right: auto; margin-left: auto; display:block; width: 70vw;">
+         <p>It may be said that Bayes’ theorem gives us the posterior probability of Ai in terms of the prior probabilities P(Ai), i=1, 2, …, n and the conditional probabilities of B.
+            But before diving into Bayesian Linear Regression, let us briefly recap frequentist linear regression. Frequentist view of linear regression assumes data is generated from the following model:</p>  
+        <img src="blogsimg/freq.png" style="margin-right: auto; margin-left: auto; display:block; width: 70vw;">    
+        <p>y is the response that is generated from the model parameters, β, times the input matrix, X, plus error due to random sampling noise or latent variables.
+            In the ordinary least square method, the model parameters, β, are calculated by finding the parameters which minimize the sum of squared errors on the training data. The output thus consists of single-point estimates that best fit the training data and can be further used to predict for new data points.
+            Bayesian Linear Regression assumes that data responses are sampled from a probability distribution like Normal or Gaussian Distribution.</p>
+        <img src="blogsimg/normal1.png" style="margin-right: auto; margin-left: auto; display:block; width: 70vw;"> 
+        <p>Here the mean of the distribution is the product of the parameters, β and the inputs, X, and the standard deviation is σ. In Bayesian models the response is assumed to be sampled from a distribution and so are the parameters.</p>
+        <p>The primary objective of this is to determine the posterior probability of the data to assign priors for the model parameters. The posterior probability utilizes the domain knowledge to determine the predicted output for future data points. In this viewpoint, we could also use non-informative priors. Non-informative priors utilize distributions with large standard deviations that do not assume anything about the variable, that is, it lets the data speak for itself.</p>
+         <p>In the case of continuous values, calculation of the exact posterior distribution is intractable, thus, we use sampling methods such as Markov Chain Monte Carlo(MCMC) to draw samples from the posterior in order to approximate the posterior. The essential understanding behind this process is that the approximation of the posterior will eventually converge on the true posterior distribution for the model parameters.
+            The conclusion of this process is drawing a distribution which helps in making inferences about the future new observations. The distribution showcases the uncertainty in the model. With the increase in the number of data points, the uncertainty goes down providing better estimates for new data points.</p> 
+        <h3>Implementing Bayesian Linear Modelling in Python:</h3>
+         <p>We are using data on student grades collected from a Portuguese secondary (high) school. This data is from the UCI machine learning repository.</p>
+        <p>The objective is to predict the final grade from the student information which makes this a supervised, regression task. We have a set of training data with known labels, and we want the model to learn a mapping from the features (explanatory variables) to the target (the label) in this case the final grade. It is a regression task because the final grade is a continuous value.
+            There are two primary points that are met in this model. One of which is building a formula relating the features to the target and decide on a prior distribution for the data likelihood. The second one is to sample from the parameter posterior distribution using MCMC.
+            The formula relating the grade to the student characterisics:</p>
+        <p><i>Grade ~ failures + higher_edu + mother_edu + study time + father_edu + absences</i></p>
+        <p>Based on the correlation of values, we can assume that grade is a linear function of the combination of the six features on the right side of the tilde.</p>
+        <p>The dedicated sampler runs for few minutes and stores the values in <i>normal_trace</i></p>
+        <p>A traceplot shows the posterior distribution for the model parameters on the left and the progression of the samples drawn in the trace for the variable on the right. The two colors represent the two different chains sampled.</p>
+        <p><i>p.traceplot(normal_trace):</i></p>
+        <img src="blogsimg/tplot.png" style="margin-right: auto; margin-left: auto; display:block; width: 70vw;"> 
+        <p>The left side of the traceplot is the marginal posterior: the values for the variable are on the x-axis with the probability for the variable (as determined by sampling) on the y-axis. The different colored lines indicate that we performed two chains of Markov Chain Monte Carlo. From the left side we can see that there is a range of values for each weight. The right side shows the different sample values drawn as the sampling process runs.</p>
+        <p>We can also see a summary of the model parameters which:
+            <i>pm.summary(normal_trace):</i></p>
+        <img src="blogsimg/summary.png" style="margin-right: auto; margin-left: auto; display:block; width: 70vw;"> 
+        <p>We can infer that the previous class failures and absences have a negative weight, again the Higher Education plans and studying time have a positive weight. Similarly for the rest.
+            The standard deviation column and hpd limits give us a sense of how confident we are in the model parameters.</p>
+        <p>In order to see the effect of a single variable on the grade, we can change the value of this variable while holding the others constant and look at how the estimated grades change. To do this, we use the <i>plot_posterior_predictive</i> function and assume that all variables except for the one of interest (the query variable) are at the median value.
+            The results The results show the estimated grade versus the range of the query variable for 100 samples from the posterior:</p>
+        <img src="blogsimg/plots.png" style="margin-right: auto; margin-left: auto; display:block; width: 70vw;"> 
+        <p>Each line (there are 100 in each plot) is drawn by picking one set of model parameters from the posterior trace and evaluating the predicted grade across a range of the query variable. The distribution of the lines shows uncertainty in the model parameters: the more spread out the lines, the less sure the model is about the effect of that variable. An instance is the plot for father’s education.</p>
+        <img src="blogsimg/plotfather.png" style="margin-right: auto; margin-left: auto; display:block; width: 70vw;"> 
+        <p>When it comes to making predictions, this model can be used to estimate distributions. We find the normal distribution of estimated outputs and multiply the model parameters by our data point to derive the mean and standard deviation.</p>
+        <p>In this case, we will take the mean of each model parameter from the trace to serve as the best estimate of the parameter. If we take the mean of the parameters in the trace, then the distribution for a prediction becomes:</p>
+        <p><i>Grade ~ N(9.20 * Intercept - 1.32 * failures + 1.85 * higher_edu + 0.26 * mother_edu + 0.58 * studytime + 0.03 * father_edu - 0.07 * absences,  2.28^2)</i></p>
+        <p>For a new data point, we substitute the value of the variables and construct the probability density function for the grade.</p>
+        <p><i>The {in progress} code for this model is on my <a href="https://github.com/Rajwrita/Regression/blob/master/Bayesianexamplemodel.ipynb">GitHub!</a>. Until then you can check out the simpler models on Regression through this <a href="https://github.com/Rajwrita/Regression">link!</a></i></p>
+        
+        
+        
+        
+        
+        <!--button in card-->
+
+      <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <br>
+          <p class="card-text"><small class="text-muted">01-04-2020</small></p>
+        </div>
+    </div>
+
+    </div>
+
+    </section>
+    </section>
+
+    
+  
+  
+   
+  
+   
+  
+      
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+          crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+          crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+          crossorigin="anonymous"></script>
+  
+      <script>
+          $(function () {
+              $(document).scroll(function () {
+                  var $nav = $("#mainNavbar");
+                  $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+              });
+          });
+      </script>
+  </body>
+  
+  </html>
