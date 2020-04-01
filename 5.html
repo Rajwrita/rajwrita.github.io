@@ -27,6 +27,11 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
     <link rel="manifest" href="../site.webmanifest">
+    
+    <style>
+        p {font-family:'Muli', sans-serif;}
+        
+    </style>
 </head>
 <body>
     
@@ -52,11 +57,11 @@
         <img src="blogsimg/bayes.jpg" style="margin-right: auto; margin-left: auto; display:block; width: 40vw;">
          <p>It may be said that Bayes’ theorem gives us the posterior probability of Ai in terms of the prior probabilities P(Ai), i=1, 2, …, n and the conditional probabilities of B.
             But before diving into Bayesian Linear Regression, let us briefly recap frequentist linear regression. Frequentist view of linear regression assumes data is generated from the following model:</p>  
-        <img src="blogsimg/freq.png" style="margin-right: auto; margin-left: auto; display:block; width: 70vw;">    
+        <img src="blogsimg/freq.png" style="margin-right: auto; margin-left: auto; display:block; width: 25vw;">    
         <p>y is the response that is generated from the model parameters, β, times the input matrix, X, plus error due to random sampling noise or latent variables.
             In the ordinary least square method, the model parameters, β, are calculated by finding the parameters which minimize the sum of squared errors on the training data. The output thus consists of single-point estimates that best fit the training data and can be further used to predict for new data points.
             Bayesian Linear Regression assumes that data responses are sampled from a probability distribution like Normal or Gaussian Distribution.</p>
-        <img src="blogsimg/normal1.png" style="margin-right: auto; margin-left: auto; display:block; width: 70vw;"> 
+        <img src="blogsimg/normal1.png" style="margin-right: auto; margin-left: auto; display:block; width: 30vw;"> 
         <p>Here the mean of the distribution is the product of the parameters, β and the inputs, X, and the standard deviation is σ. In Bayesian models the response is assumed to be sampled from a distribution and so are the parameters.</p>
         <p>The primary objective of this is to determine the posterior probability of the data to assign priors for the model parameters. The posterior probability utilizes the domain knowledge to determine the predicted output for future data points. In this viewpoint, we could also use non-informative priors. Non-informative priors utilize distributions with large standard deviations that do not assume anything about the variable, that is, it lets the data speak for itself.</p>
          <p>In the case of continuous values, calculation of the exact posterior distribution is intractable, thus, we use sampling methods such as Markov Chain Monte Carlo(MCMC) to draw samples from the posterior in order to approximate the posterior. The essential understanding behind this process is that the approximation of the posterior will eventually converge on the true posterior distribution for the model parameters.
@@ -75,14 +80,14 @@
         <p>The left side of the traceplot is the marginal posterior: the values for the variable are on the x-axis with the probability for the variable (as determined by sampling) on the y-axis. The different colored lines indicate that we performed two chains of Markov Chain Monte Carlo. From the left side we can see that there is a range of values for each weight. The right side shows the different sample values drawn as the sampling process runs.</p>
         <p>We can also see a summary of the model parameters which:
             <i>pm.summary(normal_trace):</i></p>
-        <img src="blogsimg/summary.png" style="margin-right: auto; margin-left: auto; display:block; width: 70vw;"> 
+        <img src="blogsimg/summary.png" style="margin-right: auto; margin-left: auto; display:block; width: 50vw;"> 
         <p>We can infer that the previous class failures and absences have a negative weight, again the Higher Education plans and studying time have a positive weight. Similarly for the rest.
             The standard deviation column and hpd limits give us a sense of how confident we are in the model parameters.</p>
         <p>In order to see the effect of a single variable on the grade, we can change the value of this variable while holding the others constant and look at how the estimated grades change. To do this, we use the <i>plot_posterior_predictive</i> function and assume that all variables except for the one of interest (the query variable) are at the median value.
             The results The results show the estimated grade versus the range of the query variable for 100 samples from the posterior:</p>
-        <img src="blogsimg/plots.png" style="margin-right: auto; margin-left: auto; display:block; width: 70vw;"> 
+        <img src="blogsimg/plots.png" style="margin-right: auto; margin-left: auto; display:block; width: 35vw;"> 
         <p>Each line (there are 100 in each plot) is drawn by picking one set of model parameters from the posterior trace and evaluating the predicted grade across a range of the query variable. The distribution of the lines shows uncertainty in the model parameters: the more spread out the lines, the less sure the model is about the effect of that variable. An instance is the plot for father’s education.</p>
-        <img src="blogsimg/plotfather.png" style="margin-right: auto; margin-left: auto; display:block; width: 70vw;"> 
+        <img src="blogsimg/plotfather.png" style="margin-right: auto; margin-left: auto; display:block; width: 35vw;"> 
         <p>When it comes to making predictions, this model can be used to estimate distributions. We find the normal distribution of estimated outputs and multiply the model parameters by our data point to derive the mean and standard deviation.</p>
         <p>In this case, we will take the mean of each model parameter from the trace to serve as the best estimate of the parameter. If we take the mean of the parameters in the trace, then the distribution for a prediction becomes:</p>
         <p><i>Grade ~ N(9.20 * Intercept - 1.32 * failures + 1.85 * higher_edu + 0.26 * mother_edu + 0.58 * studytime + 0.03 * father_edu - 0.07 * absences,  2.28^2)</i></p>
