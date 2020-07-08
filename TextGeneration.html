@@ -69,7 +69,7 @@
         <p>Next, we create input sequences using list of tokens. Our input sequences are nothing but a python list. For each line in the corpus of text, we will generate a token list using the tokenizer. This process converts a line of text like <i> Arabella’s got some interstellar-gator skin boots</i> into a list of tokens representing these words. This same process happens for every other line in our data set.</p>
       <p>Hence, we see that the input sequences are simply the sentences that are broken down into phrases. Following this, we need to now find the length of the longest sentence in the corpus. This is very simple, you need to just iterate over all the sentences and find the longest one.</p>
 
-        <h5 style="text-align:center"> <i>max_sequence_len = max([len(x) for x in input_sequences])/i></h5>
+        <h5 style="text-align:center"> <i>max_sequence_len = max([len(x) for x in input_sequences])</i></h5>
         <p>Now we pad all of the sequences so that they are all of the same lengths. Pre-pad the sequences with zeros which consequently makes it easier to extract the label. We simply grab the last token and we get the label.</p>
         <h5 style="text-align:center"> <i>input_sequences = np.array(pad_sequences(input_sequences, maxlen=max_sequence_len, padding='pre'))</i></h5>
         <p>After padding, we create predictors and labels, which is basically splitting our sequences into x’s and y’s. We use the slicing property of python here. The code:</p>
