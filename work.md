@@ -1,5 +1,5 @@
 ---
-layout: projects
+layout: research
 title: Work
 permalink: /work
 ---
