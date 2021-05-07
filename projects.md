@@ -32,7 +32,7 @@ Virtual Machine (simulating LC-3) with simplified instruction set to run assembl
 
 <hr>
 
-##Passion Projects
+## Passion Projects
 
 ### [Kolkata 70](https://rajwrita.com/kol70)
 A platform for art, photography and more. I plan to grow Kolkata 70 as a platform to support budding artists, give them a platform to showcase their art, conduct fundraisers and in general, just have a good time painting :)
