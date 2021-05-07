@@ -10,4 +10,8 @@
     <link rel="stylesheet" href="{{site.url}}/assets/css/style.css">
     <script src="{{site.url}}/assets/js/script.js"></script>
     <script src="{{site.url}}/assets/js/tocbot.min.js"></script>
+    
+    {% if site.google_analytics and jekyll.environment == 'production' %}
+    {% include analytics.html %}
+    {% endif %}
 </head>
