@@ -9,7 +9,7 @@ urls:
     - text: Projects
       url: /projects
     - text: Resume
-      url: /assets/Aritra_Resume.pdf
+      url: /assets/RajwritaNathResume.pdf
 
 title: Portfolio
 email: rajwritanath@gmail.com
@@ -17,8 +17,8 @@ description: >- # this means to ignore newlines until "baseurl:"
   This is my portfolio site.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://rajwrita.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: ariG23498
-github_username:  ariG23498
+twitter_username: rajwrita
+github_username:  Rajwrita
 
 # Build settings
 theme: minima
@@ -27,7 +27,7 @@ plugins:
   - jekyll-sitemap
 
 disqus: true
-disqus_shortname: 'ariG23498'
+disqus_shortname: 'Rajwrita'
 
 # For hihlighting code
 highlighter: rouge
