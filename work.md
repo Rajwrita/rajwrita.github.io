@@ -9,7 +9,7 @@ permalink: /work
 <div class="post-wrap archive">
     <h3>Moderator at Manning Publications</h3>
     <article class="archive-item">
-       Moderating titles on Machine Learning, Deep Learning, Data Science, Algorithms, UI/UX and Data Structures for the livebook section of Manning Publications.<br>
+       Moderating titles on Machine Learning, Deep Learning, Data Science, Algorithms, UI/UX and Data Structures for the livebook section of <a href="http://livebook.manning.com/">Manning Publications</a>.<br>
        <small><sup>*</sup>April 2020 - Present</small>
     </article>
     <h3>Summer Research Intern</h3>
