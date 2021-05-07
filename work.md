@@ -1,6 +1,6 @@
 ---
 layout: research
-title: Work
+title: Work Ex
 permalink: /work
 ---
 
