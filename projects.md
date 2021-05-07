@@ -5,53 +5,29 @@ permalink: /projects
 ---
 <!-- Write The Project Markdown here -->
 
-## Own Project
+## Technical Projects
 
-Not much, but it's honest work.
-
-### [DevFest(2019) Application](https://github.com/gdgkolkata/DevFest-19-App)
-I am a member of the `Google Developers Group Kolkata`. The annual festival called `DevFest` is a celebration for and by the community. I was one of the collaborators for the 2019 DevFest Android Application.
-
-#### Features
-
-* Time-table of the event
-* Speaker list
-* Location of the event
-
-#### Technology
-
-* Flutter
-
-#### Collaborators
-
-* [Rimjhim](https://twitter.com/bhadani_rimjhim)
-* [Piyush S](https://twitter.com/devps2020)
-* [Piyush M](https://twitter.com/OnlyMaheswari)
-* [Ritwik](https://twitter.com/RahaRitwik)
+### [Image Segmentation on MRI](https://github.com/Rajwrita/Brain-Tumor-Auto-Segmentation)
+Building a neural network to automatically segment tumor regions in brain using MRI. Multi class segmentation model is used to determine 3 different abnormalities - edema, non-enhancing tumors and enhancing tumors. 
 
 <hr>
 
-### [Vigyanam](https://github.com/ariG23498/Vigyanam)
+### [Noted Application](https://github.com/dscnsec/noted-App)
+Organize notes for students in college, built using Dart and GitHub API. Illustrations using Procreate.
 
-This is a prototype application that got us into the finals of `Smart India Hackathon (2019 software edition)`. An application that could determine the scientific temper/literacy of a population.
+<hr>
 
-#### Features
+### [Anomaly Detection based on unsupervised learning]()
+Uses Isolation Forest and K Means Clustering Algorithms, PCA. Detects glitches and alerts via email.
 
-* Location retrieval
-* Intuitive User Experience
-* Scientific Temper
+<hr>
 
-#### Technology
+### [Use of Hyperbolic Geometry to detect the Hierarchical properties of words](https://github.com/Rajwrita/Poincare-Embeddings)
+Poincare Embeddings for Learning Hierarchical Representations
 
-* Flutter
-* Flask
+<hr>
 
-#### Collaborators
+### [LC-3-Virtual-Machine](https://github.com/Rajwrita/LC-3-Virtual-Machine)
+Virtual Machine (simulating LC-3) with simplified instruction set to run assembly language programs like 2048. 
 
-* [Sayak](https://twitter.com/RisingSayak)
-* [Anubhav](https://twitter.com/xprilion)
-* [Ritwik](https://twitter.com/RahaRitwik)
-* [Ayush](https://twitter.com/ayushthakur0)
-* [Snehangshu](https://twitter.com/snehangshu_)
-* [Sunita](https://twitter.com/sunitasen_19)
-* Sharnagat
+<hr>
