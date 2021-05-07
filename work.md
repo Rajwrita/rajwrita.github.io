@@ -19,7 +19,7 @@ permalink: /work
     </article>
     <h3>Lead at Developer Students Club, NSEC</h3>
     <article class="archive-item">
-        leading a team of 5000 student developers under the program of <a href="https://dsc.community.dev/netaji-subhash-engineering-college/">Developer Students Club </a>by Google. Organized events, conducted hackathons, and participated as a speaker on multiple occasions. Forming teams and delegating tasks, working together to build technologically smart solutions for the betterment of the society and beyond. <br>
+        Leading a team of 5000 student developers under the program of <a href="https://dsc.community.dev/netaji-subhash-engineering-college/">Developer Students Club </a>by Google. Forming teams and delegating tasks, working together to build technologically smart solutions for the betterment of the society and beyond. <br>
        <small><sup>*</sup> August 2020 - Present</small>
     </article>
     <h3>Mentor at Winter of Code</h3>
