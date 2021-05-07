@@ -12,11 +12,11 @@ urls:
       url: /assets/Aritra_Resume.pdf
 
 title: Portfolio
-email: aritra.roy.g@gmail.com
+email: rajwritanath@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   This is my portfolio site.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://ariG23498.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://rajwrita.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ariG23498
 github_username:  ariG23498
 
