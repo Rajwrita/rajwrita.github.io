@@ -15,5 +15,5 @@ permalink: /posts
             <article class="archive-item">
                 <a class="archive-item-link" href="https://medium.com/@aritra.born2fly/just-a-tad-bit-of-java-fc55df737fb9" target="_blank" rel="noopener noreferrer">Tad Bit of Java</a>
             </article>
-    </div>
+    
 </div>
