@@ -4,6 +4,8 @@ urls:
       url: /kol70
     - text: Posts
       url: /posts
+    - text: Work Ex
+      url: /work
     - text: Projects
       url: /projects
     - text: Resume
