@@ -1,11 +1,9 @@
 # For the nav bar
 urls:
+    - text: Kolkata 70
+      url: /kol70
     - text: Posts
       url: /posts
-    - text: Research
-      url: /research
-    - text: Talks
-      url: /talks
     - text: Projects
       url: /projects
     - text: Resume
