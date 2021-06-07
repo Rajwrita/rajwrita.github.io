@@ -7,6 +7,11 @@ permalink: /work
 <!-- Write the Post page here -->
 <div class="main">
 <div class="post-wrap archive">
+    <h3>Software Engineer at Regulatory Genome Project</h3>
+    <article class="archive-item">
+       Developing machine learning models to classify text and extract data from regulatory information. Project led by <a href="https://www.cam.ac.uk/research/news/cambridge-launches-regulatory-genome-project">University of Cambridge</a>.<br>
+       <small>June 2021 - Present</small>
+    </article>
     <h3>Moderator at Manning Publications</h3>
     <article class="archive-item">
        Moderating titles on Machine Learning, Deep Learning, Data Science, Algorithms, UI/UX and Data Structures for the livebook section of <a href="http://livebook.manning.com/">Manning Publications</a>.<br>
