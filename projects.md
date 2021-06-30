@@ -7,6 +7,16 @@ permalink: /projects
 
 ## Technical Projects
 
+### [Using Classification Algorithms to Generate Negative PPI Dataset](https://github.com/Rajwrita/NIPResearch)
+Using sub-cellular locations from uniprot and pattern analysis to determine dataset for negative protein protein interaction.
+
+<hr>
+
+### [Zusa - Fundrasing Platform](https://zusa.netlify.app/)
+Integrating advertisers and fund-collection. Selected for the final pitch round in Grand Idea Challenge, Indian School of Business AIC. 
+
+<hr>
+
 ### [Image Segmentation on MRI](https://github.com/Rajwrita/Brain-Tumor-Auto-Segmentation)
 Building a neural network to automatically segment tumor regions in brain using MRI. Multi class segmentation model is used to determine 3 different abnormalities - edema, non-enhancing tumors and enhancing tumors. 
 
@@ -17,7 +27,7 @@ Organize notes for students in college, built using Dart and GitHub API. Illustr
 
 <hr>
 
-### [Anomaly Detection based on unsupervised learning]()
+### [Anomaly Detection based on Unsupervised Learning]()
 Uses Isolation Forest and K Means Clustering Algorithms, PCA. Detects glitches and alerts via email.
 
 <hr>
