@@ -2,16 +2,17 @@
 urls:
     - text: Kolkata 70
       url: /kol70
-    - text: Posts
-      url: /posts
+    - text: Resume
+      url: /assets/RajwritaNathResume.pdf
     - text: Work Ex
       url: /work
     - text: Projects
       url: /projects
+    - text: Posts
+      url: /posts
     - text: Talks
       url: /talks
-    - text: Resume
-      url: /assets/RajwritaNathResume.pdf
+
 
 title: Rajwrita
 email: rajwritanath@gmail.com
