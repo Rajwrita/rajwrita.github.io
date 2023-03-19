@@ -4,14 +4,14 @@ urls:
       url: /kol70
     - text: Resume
       url: /assets/RajwritaNathResume.pdf
-    - text: Work Ex
-      url: /work
-    - text: Projects
-      url: /projects
-    - text: Posts
-      url: /posts
-    - text: Talks
-      url: /talks
+#     - text: Work Ex
+#       url: /work
+#     - text: Projects
+#       url: /projects
+#     - text: Posts
+#       url: /posts
+#     - text: Talks
+#       url: /talks
 
 
 title: Rajwrita
