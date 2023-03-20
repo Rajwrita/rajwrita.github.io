@@ -1,9 +1,12 @@
 # For the nav bar
 urls:
-    - text: Kolkata 70
-      url: /kol70
+    
     - text: Resume
       url: /assets/RajwritaNathResume.pdf
+    - text: Kolkata 70
+      url: /kol70
+     - text: Kolkata 70
+      url: "https://rajwritacooks.framer.website/"
 #     - text: Work Ex
 #       url: /work
 #     - text: Projects
