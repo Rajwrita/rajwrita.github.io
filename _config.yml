@@ -5,7 +5,7 @@ urls:
       url: /assets/RajwritaNathResume.pdf
     - text: Kolkata 70
       url: /kol70
-     - text: Kolkata 70
+    - text: Kitchen
       url: "https://rajwritacooks.framer.website/"
 #     - text: Work Ex
 #       url: /work
